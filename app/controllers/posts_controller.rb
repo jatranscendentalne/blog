@@ -15,4 +15,10 @@ class PostsController < ApplicationController
     @post = Post.create!(params[:post].permit(:title, :content))
     redirect_to action: "index"
   end
+
+  def destroy
+    @post = Post.find(params[:id])
+    @post.destroy!
+    redirect_to action: "index"
+  end
 end
